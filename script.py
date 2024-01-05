@@ -84,5 +84,5 @@ for patient in patients:
         total_bmi_males += float(patient['bmi'])
 average_bmi_females = round(total_bmi_females/num_females)
 average_bmi_males = round(total_bmi_males/num_males)
-print(average_bmi_females)
-print(average_bmi_males)
+print("Average BMI for females:", average_bmi_females)
+print("Average BMI for males:", average_bmi_males)
