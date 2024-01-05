@@ -9,20 +9,38 @@ with open('insurance.csv') as csvfile:
 
 
 # Function to get count of rows that match value in csv column
-def get_count(csv_column, csv_column_value):
+def get_count(csv_column, count_value):
     count = 0
     for patient in patients:
-        if patient[csv_column] == csv_column_value:
+        if patient[csv_column] == count_value:
             count += 1
     return count
 
 
 # Function to get sum of values in csv column
-def get_total(csv_column, type):
+def get_total(sum_value, type):
     total = 0
     for patient in patients:
-        total += type(patient[csv_column])
+        total += type(patient[sum_value])
     return total
+
+
+def get_total_if(csv_if_column, operator, value, sum_value, type):
+    total = 0
+    for patient in patients:
+        if operator == 'equal to':
+            if patient[csv_if_column] == value:
+                total += type(patient[sum_value])
+        elif operator == 'less than or equal to':
+            if patient[csv_if_column] <= value:
+                total += type(patient[sum_value])
+        elif operator == 'greater than or equal to':
+            if patient[csv_if_column] >= value:
+                total += type(patient[sum_value])
+        elif operator == 'not equal to':
+            if patient[csv_if_column] != value:
+                total += type(patient[sum_value])
+    return round(total, 2)
 
 
 # Get counts
@@ -35,9 +53,14 @@ count_non_smokers = get_count('smoker', 'no')
 # Get totals
 total_age = get_total('age', int)
 total_cost = get_total('charges', float)
+total_cost_smokers = get_total_if('smoker', 'equal to', 'yes', 'charges', float)
+total_cost_non_smokers = get_total_if('smoker', 'equal to', 'no', 'charges', float)
+total_bmi_females = get_total_if('sex', 'equal to', 'female', 'bmi', float)
+total_bmi_males = get_total_if('sex', 'equal to', 'male', 'bmi', float)
+
 
 # Calculate average age of patients
-average_age = round(total_age/len(patients))
+average_age = round(total_age / count_patients)
 # print("Average age of patients in this dataset: " + str(average_age))
 
 # Analyze where a majority of patients are from
@@ -53,22 +76,11 @@ max_count_patients_per_region = max(count_patients_per_region)  # southwest has 
 # print("Region with the highest number of patients in this dataset: " + str(max_count_patients_per_region.title()))
 
 # Analyze average insurance cost for smokers vs. non-smokers and how it affects average cost overall
-# Get average cost overall
-average_cost = round(total_cost/count_patients)
-# Get average cost for smokers
-total_cost_smokers = 0
-for patient in patients:
-    if patient['smoker'] == "yes":
-        total_cost_smokers += float(patient['charges'])
-average_cost_smokers = round(total_cost_smokers/count_smokers)
-# Get average cost for non-smokers
-total_cost_nonsmokers = 0
-for patient in patients:
-    if patient['smoker'] == "no":
-        total_cost_nonsmokers += float(patient['charges'])
-average_cost_nonsmokers = round(total_cost_nonsmokers/count_non_smokers)
+average_cost = round(total_cost / count_patients)
+average_cost_smokers = round(total_cost_smokers / count_smokers)
+average_cost_nonsmokers = round(total_cost_non_smokers / count_non_smokers)
 # Get factor of average insurance cost for smoker to non-smoker
-factor = round(average_cost_smokers/average_cost_nonsmokers)
+factor = round(average_cost_smokers / average_cost_nonsmokers)
 # print("Average insurance cost: $" + str(average_cost))
 # print("Average insurance cost for smokers: $" + str(average_cost_smokers))
 # print("Average insurance cost for non-smokers: $" + str(average_cost_nonsmokers))
@@ -82,18 +94,11 @@ for patient in patients:
     if patient['children'] > '0':
         total_age_patients_with_child += int(patient['age'])
         num_patients_with_child += 1
-average_age_patients_with_child = round(total_age_patients_with_child/num_patients_with_child)
+average_age_patients_with_child = round(total_age_patients_with_child / num_patients_with_child)
 # print("Average age of patients with one or more children:", average_age_patients_with_child)
 
 # Analyze average BMI per sex
-total_bmi_females = 0
-total_bmi_males = 0
-for patient in patients:
-    if patient['sex'] == 'female':
-        total_bmi_females += float(patient['bmi'])
-    elif patient['sex'] == 'male':
-        total_bmi_males += float(patient['bmi'])
-average_bmi_females = round(total_bmi_females/count_females)
-average_bmi_males = round(total_bmi_males/count_males)
-print("Average BMI for females:", average_bmi_females)
-print("Average BMI for males:", average_bmi_males)
+average_bmi_females = round(total_bmi_females / count_females)
+average_bmi_males = round(total_bmi_males / count_males)
+# print("Average BMI for females:", average_bmi_females)
+# print("Average BMI for males:", average_bmi_males)
