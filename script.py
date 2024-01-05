@@ -68,5 +68,21 @@ for patient in patients:
         total_age_patients_with_child += int(patient['age'])
         num_patients_with_child += 1
 average_age_patients_with_child = round(total_age_patients_with_child/num_patients_with_child)
-print("Average age of patients with one or more children:", average_age_patients_with_child)
+# print("Average age of patients with one or more children:", average_age_patients_with_child)
 
+# Analyze average BMI per sex
+num_females = 0
+num_males = 0
+total_bmi_females = 0
+total_bmi_males = 0
+for patient in patients:
+    if patient['sex'] == 'female':
+        num_females += 1
+        total_bmi_females += float(patient['bmi'])
+    elif patient['sex'] == 'male':
+        num_males += 1
+        total_bmi_males += float(patient['bmi'])
+average_bmi_females = round(total_bmi_females/num_females)
+average_bmi_males = round(total_bmi_males/num_males)
+print(average_bmi_females)
+print(average_bmi_males)
