@@ -12,15 +12,15 @@ Data
 We have access to Medical Cost Personal Datasets found at https://www.kaggle.com/datasets/mirichoi0218/insurance/data
 
 Analysis
-1. find out the average age of patients in the dataset
-2. analyze where a majority of individuals are from
-3. look at the different costs between smoker and non-smoker
-4. figure out what the average age is for someone who has at least one child
-5. find out average bmi for each sex
-6. find out % of each sex is smoker
-7. find out avg charge for each region
-8. find out who gets charged more on avg, male or female
-9. find out avg number of children per region
-10. find out if people are more likely to smoke/non-smoke if they have more than one child
-11. find out if males and females with children have higher/lower bmi than males/females without
-12. average charges per region
+1. [X] find out the average age of patients in the dataset
+2. [X] analyze where a majority of individuals are from
+3. [X] look at the different costs between smoker and non-smoker
+4. [X] figure out what the average age is for someone who has at least one child
+5. [X] find out average bmi for each sex
+6. [ ] find out % of each sex is smoker
+7. [ ] find out avg charge for each region
+8. [X] find out who gets charged more on avg, male or female
+9. [ ] find out avg number of children per region
+10. [ ] find out if people are more likely to smoke/non-smoke if they have more than one child
+11. [ ] find out if males and females with children have higher/lower bmi than males/females without
+12. [ ] average charges per region

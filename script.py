@@ -57,6 +57,8 @@ total_cost_smokers = get_total_if('smoker', 'equal to', 'yes', 'charges', float)
 total_cost_non_smokers = get_total_if('smoker', 'equal to', 'no', 'charges', float)
 total_bmi_females = get_total_if('sex', 'equal to', 'female', 'bmi', float)
 total_bmi_males = get_total_if('sex', 'equal to', 'male', 'bmi', float)
+total_cost_females = get_total_if('sex', 'equal to', 'female', 'charges', float)
+total_cost_males = get_total_if('sex', 'equal to', 'male', 'charges', float)
 
 
 # Calculate average age of patients
@@ -102,3 +104,9 @@ average_bmi_females = round(total_bmi_females / count_females)
 average_bmi_males = round(total_bmi_males / count_males)
 # print("Average BMI for females:", average_bmi_females)
 # print("Average BMI for males:", average_bmi_males)
+
+# Analyze insurance cost per sex
+average_cost_females = round(total_cost_females / count_females)
+average_cost_males = round(total_cost_males / count_males)
+print("Average cost for females:", average_cost_females)
+print("Average cost for males:", average_cost_males)
