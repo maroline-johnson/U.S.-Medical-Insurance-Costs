@@ -21,6 +21,6 @@ Analysis
 7. [X] find out avg charge for each region
 8. [X] find out who gets charged more on avg, male or female
 9. [X] find out avg number of children per region
-10. [ ] find out if people are more likely to smoke/non-smoke if they have more than one child
+10. [X] find out if people are more likely to smoke/non-smoke if they have more than one child
 11. [ ] find out if males and females with children have higher/lower bmi than males/females without
 12. [ ] average charges per region

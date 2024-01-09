@@ -176,3 +176,14 @@ print("Average number of children for patients in the Northeast: " + str(average
 print("Average number of children for patients in the Southeast: " + str(average_kids_southeast))
 print("Average number of children for patients in the Northwest: " + str(average_kids_northwest))
 print("Average number of children for patients in the Southwest: " + str(average_kids_southwest))
+
+# Analyze likelihood of smoking for patients more than one child
+count_parents = 0
+count_parent_smokers = 0
+for patient in patients:
+    if patient['children'] != 0:
+        count_parents += 1
+    if patient['children'] != 0 and patient['smoker'] != 'yes':
+        count_parent_smokers += 1
+parent_smoker_probability = round(count_parent_smokers / count_parents * 100)
+print("Probability that a parent is a smoker: %" + str(parent_smoker_probability))
