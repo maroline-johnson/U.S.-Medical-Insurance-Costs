@@ -153,3 +153,26 @@ print("Average cost for patients in the Northeast: $" + str(average_cost_northea
 print("Average cost for patients in the Southeast: $" + str(average_cost_southeast))
 print("Average cost for patients in the Northwest: $" + str(average_cost_northwest))
 print("Average cost for patients in the Southwest: $" + str(average_cost_southwest))
+
+# Analyze number of children for each region
+total_kids_northeast = 0
+total_kids_southeast = 0
+total_kids_northwest = 0
+total_kids_southwest = 0
+for patient in patients:
+    if patient['region'] == 'northeast' and patient['children'] != 0:
+        total_kids_northeast += int(patient['children'])
+    elif patient['region'] == 'southeast' and patient['children'] != 0:
+        total_kids_southeast += int(patient['children'])
+    elif patient['region'] == 'northwest' and patient['children'] != 0:
+        total_kids_northwest += int(patient['children'])
+    elif patient['region'] == 'southwest' and patient['children'] != 0:
+        total_kids_southwest += int(patient['children'])
+average_kids_northeast = round(total_kids_northeast / count_northeast, 2)
+average_kids_southeast = round(total_kids_southeast / count_southeast, 2)
+average_kids_northwest = round(total_kids_northwest / count_northwest, 2)
+average_kids_southwest = round(total_kids_southwest / count_southwest, 2)
+print("Average number of children for patients in the Northeast: " + str(average_kids_northeast))
+print("Average number of children for patients in the Southeast: " + str(average_kids_southeast))
+print("Average number of children for patients in the Northwest: " + str(average_kids_northwest))
+print("Average number of children for patients in the Southwest: " + str(average_kids_southwest))
