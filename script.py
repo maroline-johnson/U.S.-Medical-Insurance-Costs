@@ -107,8 +107,8 @@ print("Average BMI for males:", average_bmi_males)
 # Analyze insurance cost per sex
 average_cost_females = round(total_cost_females / count_females)
 average_cost_males = round(total_cost_males / count_males)
-print("Average cost for females:", average_cost_females)
-print("Average cost for males:", average_cost_males)
+print("Average cost for females: $" + str(average_cost_females))
+print("Average cost for males: $" + str(average_cost_males))
 
 # Analyze what percent of each sex group are smokers/non-smokers
 count_female_smokers = 0
@@ -122,3 +122,34 @@ percent_female_smokers = round((count_female_smokers / count_females * 100))
 percent_male_smokers = round((count_male_smokers / count_males * 100))
 print("Percent of females that smoke: " + str(percent_female_smokers) + "%")
 print("Percent of males that smoke: " + str(percent_male_smokers) + "%")
+
+# Analyze average charge for each region
+total_cost_northeast = 0
+count_northeast = 0
+total_cost_southeast = 0
+count_southeast = 0
+total_cost_northwest = 0
+count_northwest = 0
+total_cost_southwest = 0
+count_southwest = 0
+for patient in patients:
+    if patient['region'] == 'northeast':
+        total_cost_northeast += float(patient['charges'])
+        count_northeast += 1
+    elif patient['region'] == 'southeast':
+        total_cost_southeast += float(patient['charges'])
+        count_southeast += 1
+    elif patient['region'] == 'northwest':
+        total_cost_northwest += float(patient['charges'])
+        count_northwest += 1
+    elif patient['region'] == 'southwest':
+        total_cost_southwest += float(patient['charges'])
+        count_southwest += 1
+average_cost_northeast = round(total_cost_northeast / count_northeast)
+average_cost_southeast = round(total_cost_southeast / count_southeast)
+average_cost_northwest = round(total_cost_northwest / count_northwest)
+average_cost_southwest = round(total_cost_southwest / count_southwest)
+print("Average cost for patients in the Northeast: $" + str(average_cost_northeast))
+print("Average cost for patients in the Southeast: $" + str(average_cost_southeast))
+print("Average cost for patients in the Northwest: $" + str(average_cost_northwest))
+print("Average cost for patients in the Southwest: $" + str(average_cost_southwest))
