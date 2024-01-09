@@ -57,6 +57,8 @@ total_cost_smokers = get_total_if('smoker', 'equal to', 'yes', 'charges', float)
 total_cost_non_smokers = get_total_if('smoker', 'equal to', 'no', 'charges', float)
 total_bmi_females = get_total_if('sex', 'equal to', 'female', 'bmi', float)
 total_bmi_males = get_total_if('sex', 'equal to', 'male', 'bmi', float)
+total_bmi_parents = get_total_if('children', 'greater than or equal to', '1', 'bmi', float)
+total_bmi_non_parents = get_total_if('children', 'equal to', '0', 'bmi', float)
 total_cost_females = get_total_if('sex', 'equal to', 'female', 'charges', float)
 total_cost_males = get_total_if('sex', 'equal to', 'male', 'charges', float)
 
@@ -181,9 +183,15 @@ print("Average number of children for patients in the Southwest: " + str(average
 count_parents = 0
 count_parent_smokers = 0
 for patient in patients:
-    if patient['children'] != 0:
+    if patient['children'] > '0':
         count_parents += 1
-    if patient['children'] != 0 and patient['smoker'] != 'yes':
+    if patient['children'] > '0' and patient['smoker'] != 'yes':
         count_parent_smokers += 1
 parent_smoker_probability = round(count_parent_smokers / count_parents * 100)
 print("Probability that a parent is a smoker: %" + str(parent_smoker_probability))
+
+# Analyze averages of BMI for parents
+average_bmi_parents = round(total_bmi_parents / count_parents, 1)
+average_bmi_non_parents = round(total_bmi_non_parents/ (count_patients - count_parents), 1)
+print("Average BMI of parents:", average_bmi_parents)
+print("Average BMI of non-parents:", average_bmi_non_parents)
