@@ -10,36 +10,36 @@ with open('insurance.csv') as csvfile:
 
 # Function to get count of rows that match value in csv column
 def get_count(csv_column, count_value):
-    count = 0
+    counter = 0
     for patient in patients:
         if patient[csv_column] == count_value:
-            count += 1
-    return count
+            counter += 1
+    return counter
 
 
 # Function to get sum of values in csv column
-def get_total(sum_value, type):
+def get_total(sum_value, datatype):
     total = 0
     for patient in patients:
-        total += type(patient[sum_value])
+        total += datatype(patient[sum_value])
     return total
 
 
-def get_total_if(csv_if_column, operator, value, sum_value, type):
+def get_total_if(csv_if_column, operator, value, sum_value, datatype):
     total = 0
     for patient in patients:
         if operator == 'equal to':
             if patient[csv_if_column] == value:
-                total += type(patient[sum_value])
+                total += datatype(patient[sum_value])
         elif operator == 'less than or equal to':
             if patient[csv_if_column] <= value:
-                total += type(patient[sum_value])
+                total += datatype(patient[sum_value])
         elif operator == 'greater than or equal to':
             if patient[csv_if_column] >= value:
-                total += type(patient[sum_value])
+                total += datatype(patient[sum_value])
         elif operator == 'not equal to':
             if patient[csv_if_column] != value:
-                total += type(patient[sum_value])
+                total += datatype(patient[sum_value])
     return round(total, 2)
 
 
@@ -192,6 +192,6 @@ print("Probability that a parent is a smoker: %" + str(parent_smoker_probability
 
 # Analyze averages of BMI for parents
 average_bmi_parents = round(total_bmi_parents / count_parents, 1)
-average_bmi_non_parents = round(total_bmi_non_parents/ (count_patients - count_parents), 1)
+average_bmi_non_parents = round(total_bmi_non_parents / (count_patients - count_parents), 1)
 print("Average BMI of parents:", average_bmi_parents)
 print("Average BMI of non-parents:", average_bmi_non_parents)
