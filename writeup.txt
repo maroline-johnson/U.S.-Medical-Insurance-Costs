@@ -1,0 +1,36 @@
+In this analysis of a dataset focused on medical insurance costs in the USA, several key findings provide valuable
+    insights into the factors influencing insurance expenditures. The dataset comprises patient information, including
+    age, BMI, number of children, sex, smoking status, and insurance costs.
+
+Demographic Averages:
+
+The average age of patients in the dataset is 39 years.
+The average BMI for females and males is 30 and 31, respectively.
+The average insurance cost for all patients is $13,270.
+
+Smoking Impact on Insurance Costs:
+
+The average insurance cost for smokers is substantially higher at $32,050, while non-smokers face an average
+    cost of $8,434.
+Smokers, on average, incur approximately four times the insurance costs compared to non-smokers.
+
+Gender Disparities:
+
+The average insurance cost for females is $12,570, slightly lower than the average for males at $13,957.
+The percentage of female smokers is 17%, while for males, it is 24%.
+
+Regional Variances:
+
+The region with the highest number of patients is the Southwest.
+Average insurance costs vary by region, with the Northeast at $13,406, Southeast at $14,735, Northwest at $12,418,
+    and Southwest at $12,347.
+
+Family Dynamics:
+
+The average number of children for patients is approximately 1.12.
+Parents are 79% more likely to be smokers.
+The average BMI of parents is 30.7, slightly higher than non-parents at 30.6.
+
+This comprehensive analysis provides a nuanced understanding of the factors influencing medical insurance costs in the
+    USA. The insights gained can inform healthcare policies, insurance pricing strategies, and public health
+    initiatives to better address the diverse needs of the population.
